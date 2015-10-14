@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--=================================================================  
+	Solr Cores Configuration File 
+	This file allow configuring one or more cores, as well as allowing 
+	cores to be added, removed and reloaded via HTTP requests.
+	Authors: Apache Foundation.
+	License: Apache V2. (Refer to root dir for LICENSE.txt)
+	=================================================================-->
+
+<solr>
+
+	<solrcloud>
+
+		<str name="host">${host:}</str>
+		<int name="hostPort">${jetty.port:8983}</int>
+		<str name="hostContext">${hostContext:solr}</str>
+
+		<bool name="genericCoreNodeNames">${genericCoreNodeNames:true}</bool>
+
+		<int name="zkClientTimeout">${zkClientTimeout:30000}</int>
+		<int name="distribUpdateSoTimeout">${distribUpdateSoTimeout:600000}</int>
+		<int name="distribUpdateConnTimeout">${distribUpdateConnTimeout:60000}</int>
+
+	</solrcloud>
+
+	<shardHandlerFactory name="shardHandlerFactory"
+		class="HttpShardHandlerFactory">
+		<int name="socketTimeout">${socketTimeout:600000}</int>
+		<int name="connTimeout">${connTimeout:60000}</int>
+	</shardHandlerFactory>
+
+</solr>

@@ -1,0 +1,43 @@
+#   Simple English Text Stop Words  
+#	Authors: Apache Foundation, Camilo Tejeiro 
+#	License: Apache V2. (Refer to root dir for all licenses)
+
+# a couple of test stopwords to test that the words are really being
+# configured from this file:
+stopworda
+stopwordb
+
+# Standard english stop words taken from Lucene's StopAnalyzer
+a
+an
+and
+are
+as
+at
+be
+but
+by
+for
+if
+in
+into
+is
+it
+no
+not
+of
+on
+or
+such
+that
+the
+their
+then
+there
+these
+they
+this
+to
+was
+will
+with

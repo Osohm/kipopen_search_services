@@ -1,0 +1,24 @@
+# Standard .gitignore file for search services projects.
+
+# Git ignores for Solr
+# ignore the data directory in any core.
+# we don't want to load our Lucene indexed data 
+# to our repo, this will be kept in a local backup.
+
+*data/
+
+# Git ignores for Nutch
+# ignore the crawl database, we don't want to 
+# push our binary data to our repository.
+*crawl/
+
+# ignore the temporary configuration files 
+# used for reference
+*temp_configs/
+
+# ignore logs
+*logs/
+
+# General Ignores
+# Ignore archived static reference-only projects
+*-ref

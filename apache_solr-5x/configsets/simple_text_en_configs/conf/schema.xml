@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--=================================================================  
+	Solr Simple English Text Core schema 
+	This xml contains Solr5.2.1 schema definitions for being 
+	able to index and do a full-text search, with no prior knowledge 
+	of the data in the files we post for Solr.
+	Authors: Apache Foundation, Camilo Tejeiro 
+	License: Apache V2. (Refer to root dir for all licenses)
+	=================================================================-->
+
+<schema name="solr_search_text_example" version="1.5">
+	
+	<!-- Field Types Definitions. -->
+	<types>
+		
+		<!-- The String field types, StrField -->
+		<fieldType name="string" class="solr.StrField" sortMissingLast="true" />
+		<fieldType name="strings" class="solr.StrField" sortMissingLast="true" 
+		multiValued="true"/>
+		
+		<!-- The Boolean field types, BoolField: can take true or false values -->
+		<fieldType name="boolean" class="solr.BoolField" sortMissingLast="true"/>
+		<fieldType name="booleans" class="solr.BoolField" sortMissingLast="true" 
+			multiValued="true"/>	
+			
+		<!-- Default numeric field types. -->
+		<!-- For faster range queries, consider the tint/tfloat/tlong/tdouble types-->
+		
+		<!-- Integer field types, TrieIntField class-->
+		<fieldType name="int" class="solr.TrieIntField" precisionStep="0" 
+			positionIncrementGap="0"/>
+		<fieldType name="ints" class="solr.TrieIntField" precisionStep="0" 
+			positionIncrementGap="0" multiValued="true"/>
+		<fieldType name="tint" class="solr.TrieIntField" precisionStep="8" 
+			positionIncrementGap="0"/>
+		<fieldType name="tints" class="solr.TrieIntField" precisionStep="8" 
+			positionIncrementGap="0" multiValued="true"/>
+
+		<!-- Long field types, TrieLongField class--> 
+		<fieldType name="long" class="solr.TrieLongField" precisionStep="0" 
+			positionIncrementGap="0"/>   
+		<fieldType name="longs" class="solr.TrieLongField" precisionStep="0" 
+			positionIncrementGap="0" multiValued="true"/>
+		<fieldType name="tlong" class="solr.TrieLongField" precisionStep="8" 
+			positionIncrementGap="0"/>
+		<fieldType name="tlongs" class="solr.TrieLongField" precisionStep="8" 
+			positionIncrementGap="0" multiValued="true"/>
+
+		<!-- Floating point field types, TrieFloatField class--> 		
+		<fieldType name="float" class="solr.TrieFloatField" precisionStep="0" 
+			positionIncrementGap="0"/>
+		<fieldType name="floats" class="solr.TrieFloatField" precisionStep="0" 
+			positionIncrementGap="0" multiValued="true"/>
+		<fieldType name="tfloat" class="solr.TrieFloatField" precisionStep="8" 
+			positionIncrementGap="0"/>
+		<fieldType name="tfloats" class="solr.TrieFloatField" precisionStep="8" 
+			positionIncrementGap="0" multiValued="true"/>
+
+		<!-- Double field types, TrieFloatField class--> 		
+		<fieldType name="double" class="solr.TrieDoubleField" precisionStep="0" 
+			positionIncrementGap="0"/>
+		<fieldType name="doubles" class="solr.TrieDoubleField" precisionStep="0" 
+			positionIncrementGap="0" multiValued="true"/>
+	    <fieldType name="tdouble" class="solr.TrieDoubleField" precisionStep="8" 
+			positionIncrementGap="0"/>
+		<fieldType name="tdoubles" class="solr.TrieDoubleField" precisionStep="8" 
+			positionIncrementGap="0" multiValued="true"/> 
+			
+		<!-- Date field types,  TrieDateField class -->
+		<fieldType name="date" class="solr.TrieDateField" precisionStep="0" 
+			positionIncrementGap="0"/>
+		<fieldType name="dates" class="solr.TrieDateField" precisionStep="0" 
+			positionIncrementGap="0" multiValued="true"/>
+		<fieldType name="tdate" class="solr.TrieDateField" precisionStep="6" 
+			positionIncrementGap="0"/>
+		<fieldType name="tdates" class="solr.TrieDateField" precisionStep="6" 
+			positionIncrementGap="0" multiValued="true"/>
+			
+		<!-- General text field that has reasonable, generic cross-language defaults 
+				This field type will be used to process general english text to be 
+				easily searchable, "text enabled for search" -->
+		<fieldType name="text_en_search" class="solr.TextField" positionIncrementGap="100" 
+			multiValued="true">
+			<!-- Analyzer properties at index time -->
+			<analyzer type="index">
+				<!-- break words appart (tokenizes) with  with StandardTokenizer -->
+				<tokenizer class="solr.StandardTokenizerFactory"/>
+				<!-- filter out stop words -->
+				<filter class="solr.StopFilterFactory" ignoreCase="true" 
+					words="stopwords.txt" />
+				<!-- filter to ignore cases -->
+				<filter class="solr.LowerCaseFilterFactory"/>
+			</analyzer>
+			<!-- Analyzer properties at query "search" time -->     
+			<analyzer type="query">
+				<!-- break search key words appart (tokenizes) with with StandardTokenizer -->
+				<tokenizer class="solr.StandardTokenizerFactory"/>
+				<!-- filter out stop words -->
+				<filter class="solr.StopFilterFactory" ignoreCase="true" 
+					words="stopwords.txt" />
+				<!-- filter to ignore cases -->
+				<filter class="solr.LowerCaseFilterFactory"/>
+			</analyzer>
+		</fieldType>
+		
+	</types>
+	
+	<!-- Field Names Definitions -->
+	<fields>
+		
+		<!-- Solr Recommended/Required Fields -->
+		<field name="id" type="string" stored="true" indexed="true" required="true"/>
+		<field name="_version_" type="long" stored="true" indexed="true"/>
+		
+		<!-- Field names for supporting the simple post tool, that allows 
+				us to upload documents to Solr easily -->
+		<field name="title" type="strings" stored="false" indexed="false"/> 
+		<field name="content_encoding" type="strings" stored="false" indexed="false"/>
+		<field name="content_type" type="strings" stored="false" indexed="false"/>
+		<field name="stream_content_type" type="strings" stored="false" indexed="false"/>
+		<field name="stream_size" type="tlongs" stored="false" indexed="false"/>
+		<field name="resourcename" type="strings" stored="false" indexed="false"/>
+		<field name="x_parsed_by" type="strings" stored="false" indexed="false"/>
+		<!-- The Tika content field is the only one we need to index, it 
+				contains all of our data -->
+		<field name="content" type="text_en_search" stored="false" indexed="true" multiValued="true"/>
+	
+	</fields>
+	
+	<!-- Field to use to determine and enforce document uniqueness. -->
+	<uniqueKey>id</uniqueKey>	
+		
+</schema>
