@@ -1,6 +1,6 @@
 # Solr Environment Variable Settings applicable only to our Osohm 
 # Workspaces.
-# Author: Apache Foundation, Camilo Tejeiro
+# Author: Apache Foundation.
 # License: Apache_v2. (refer to licenses directory)
 
 # By default the script will use JAVA_HOME to determine which java

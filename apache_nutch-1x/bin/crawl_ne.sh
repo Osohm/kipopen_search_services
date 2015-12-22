@@ -4,7 +4,7 @@
 # Binary to execute crawl from a new path i.e. so that we keep 
 # track of binary script changes as well as work easily from our 
 # workspaces.
-# Author: Apache Foundation, Camilo Tejeiro
+# Camilo Tejeiro
 # License: Apache_v2. (refer to licenses directory)
 # ======================================================================
 

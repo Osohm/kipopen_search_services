@@ -12,7 +12,7 @@
 source bin/solr_properties.sh
 
 echo "* Stopping Solr *"
-# First, make sure we stop any Solr running instances. 
+# First, make sure we stop any Solr running instances.
 bin/solr_ne.sh stop
 
 echo "* Starting Solr *"

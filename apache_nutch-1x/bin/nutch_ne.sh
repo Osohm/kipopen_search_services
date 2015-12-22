@@ -3,7 +3,7 @@
 # Nutch New Environment Script
 # Binary to execute nutch with a new path i.e. so that it can load 
 # configuration and store data in our safe workspace.
-# Author: Apache_Foundation, Camilo Tejeiro
+# Author: Camilo Tejeiro
 # Licenses: Apache_v2. (Refer to licenses directory)
 # ======================================================================
 

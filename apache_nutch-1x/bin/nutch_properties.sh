@@ -7,7 +7,7 @@
 # Crawl routines. So do not put specific properties 
 # (e.g. focused crawl configuration files, log names ...) or they will 
 # be included everywhere.
-# Author: Apache Foundation, Camilo Tejeiro
+# Author: Camilo Tejeiro
 # License: Apache_v2. (refer to licenses directory)
 # ======================================================================
 

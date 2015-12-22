@@ -1,6 +1,6 @@
 # Simple URL Filter
 # Better use to crawl all pages within a single domain.
-# Author: Apache Foundation, Camilo Tejeiro.
+# Author: Apache Foundation.
 # Licenses: Apache_v2. (Refer to licenses directory)
 
 # Each pattern prefixed by '+' or '-' contains a regular expression, 
@@ -19,6 +19,3 @@
 
 # skip URLs with slash-delimited segment that repeats 3+ times, to break loops
 -.*(/[^/]+)/[^/]+\1/[^/]+\1/
-
-# limit our search to all pages within a single domain. 
-+^https://([a-z0-9]*\.)*camilotejeiro.wordpress.com/

@@ -4,8 +4,8 @@
 # Binary to use the post tool from a new path i.e. so that we keep 
 # track of binary script changes as well as work easily from our 
 # workspace.
-# Author: 	Camilo Tejeiro
-# License: 	Apache_v2. (refer to licenses directory)
+# Author: Camilo Tejeiro
+# License: Apache_v2. (refer to licenses directory)
 # ======================================================================
 
 # include our required shared properties.

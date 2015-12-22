@@ -1,7 +1,7 @@
 Search Services Directory
 =========================
 
-This directory is the home repository for our OSOHM search services projects.
+This directory is the home repository for the Osohm search services projects.
 
 Basic Directory Structure
 -------------------------

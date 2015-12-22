@@ -21,4 +21,4 @@
 
 # General Ignores
 # Ignore archived static reference-only projects
-*-ref
+*-v*

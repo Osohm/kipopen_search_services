@@ -7,16 +7,15 @@
 # License: Apache_v2. (refer to licenses directory)
 # ======================================================================
 
-# all paths MUST be absolute and don't use env variables to avoid trashing 
-# wrong files due to non existent paths.
-# Use Trash-put to keep things safe.
+# all paths MUST be absolute.
 
 # clean up our logs.
-trash-put /media/camilo/backup_storage/workspaces/osohm/crawl_search_engine/apache_nutch-1x/logs/*
+absolute_path="/media/camilo/backup_storage/workspaces/osohm/crawl_search_engine/apache_nutch-1x"
+trash-put $absolute_path/logs/*
 
 # clean up our data.
-trash-put /media/camilo/backup_storage/workspaces/osohm/crawl_search_engine/apache_nutch-1x/crawl/crawldb/*
-trash-put /media/camilo/backup_storage/workspaces/osohm/crawl_search_engine/apache_nutch-1x/crawl/dump/*
-trash-put /media/camilo/backup_storage/workspaces/osohm/crawl_search_engine/apache_nutch-1x/crawl/linkdb/*
-trash-put /media/camilo/backup_storage/workspaces/osohm/crawl_search_engine/apache_nutch-1x/crawl/segments/*
+trash-put $absolute_path/crawl/crawldb/*
+trash-put $absolute_path/crawl/dump/*
+trash-put $absolute_path/crawl/linkdb/*
+trash-put $absolute_path/crawl/segments/*
 
