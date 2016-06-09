@@ -13,9 +13,9 @@ source bin/nutch_properties.sh
 # If var empty or not set, 
 # set the configuration directory nutch loads when running to default.
 if [ -z "$NUTCH_CONF_DIR" ];
-	then 
-		NUTCH_CONF_DIR=$NUTCH_WORK_SPACE/conf/simple_text_configs;
-fi		
+    then 
+        NUTCH_CONF_DIR=$NUTCH_WORK_SPACE/conf/simple_text_configs;
+fi        
 
 # Now go to the  installation directory, required for relative path
 cd $NUTCH_INSTALL_DIR
